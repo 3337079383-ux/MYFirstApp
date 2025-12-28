@@ -77,8 +77,13 @@ public class GobangView extends View {
                     isGameOver = true;
                     String winner = isBlack ? (blackName + " wins!") : (whiteName + " wins!");
                     Toast.makeText(getContext(), winner, Toast.LENGTH_LONG).show();
+                    isBlack = !isBlack;
+                } else if (isBoardFull()) {
+                    Toast.makeText(getContext(), "和棋!", Toast.LENGTH_LONG).show();
+                    restartGame(false);
+                } else {
+                    isBlack = !isBlack;
                 }
-                isBlack = !isBlack;
                 invalidate();
             }
         }
@@ -111,7 +116,18 @@ public class GobangView extends View {
         return x >= 0 && x < gridSize && y >= 0 && y < gridSize;
     }
 
-    public void restartGame() {
+    private boolean isBoardFull() {
+        for (int i = 0; i < gridSize; i++) {
+            for (int j = 0; j < gridSize; j++) {
+                if (board[i][j] == 0) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public void restartGame(boolean showToast) {
         for (int i = 0; i < gridSize; i++) {
             for (int j = 0; j < gridSize; j++) {
                 board[i][j] = 0;
@@ -120,7 +136,13 @@ public class GobangView extends View {
         isBlack = true;
         isGameOver = false;
         invalidate();
-        Toast.makeText(getContext(), "Game reset.", Toast.LENGTH_SHORT).show();
+        if (showToast) {
+            Toast.makeText(getContext(), "Game reset.", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void restartGame() {
+        restartGame(true);
     }
 
     public void setPlayerNames(String black, String white) {
