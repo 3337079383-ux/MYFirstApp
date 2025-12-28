@@ -1,30 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:orientation="vertical"
-              android:gravity="center"
-              android:background="#F5F5F5"
-              android:padding="20dp">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#F5F5F5"
+    android:padding="20dp">
 
     <ImageView
-            android:layout_width="80dp"
-            android:layout_height="80dp"
-            android:src="@mipmap/ic_launcher"
-            android:layout_marginBottom="20dp"/>
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:src="@mipmap/ic_launcher"
+        android:layout_marginBottom="16dp" />
+
+    <EditText
+        android:id="@+id/et_black_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Black player name"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:layout_marginBottom="8dp" />
+
+    <EditText
+        android:id="@+id/et_white_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="White player name"
+        android:inputType="textPersonName"
+        android:maxLines="1"
+        android:layout_marginBottom="12dp" />
 
     <com.example.myfirstapp.GobangView
-            android:id="@+id/my_gobang_view"
-            android:layout_width="match_parent"
-            android:layout_height="350dp"
-            android:background="#E3C396"/>
+        android:id="@+id/my_gobang_view"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:background="#E3C396" />
 
     <Button
-            android:id="@+id/btn_restart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="重新开始"
-            android:textSize="20sp"
-            android:layout_marginTop="30dp"/>
+        android:id="@+id/btn_restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Start / Restart"
+        android:textSize="20sp"
+        android:layout_marginTop="24dp" />
 
 </LinearLayout>
