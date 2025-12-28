@@ -4,7 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.util.AttributeSet; // 必须导入这个
+import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Toast;
@@ -17,14 +17,14 @@ public class GobangView extends View {
     private int[][] board = new int[15][15];
     private boolean isBlack = true;
     private boolean isGameOver = false;
+    private String blackName = "Black";
+    private String whiteName = "White";
 
-    // 1. 第一个构造函数：给代码里直接 new 用的
     public GobangView(Context context) {
         super(context);
         init();
     }
 
-    // 🚨🚨🚨 2. 第二个构造函数：给 XML 布局用的（之前就是缺这个导致崩溃！）
     public GobangView(Context context, AttributeSet attrs) {
         super(context, attrs);
         init();
@@ -36,15 +36,12 @@ public class GobangView extends View {
         paint.setAntiAlias(true);
     }
 
-    // --- 下面是之前的画图和逻辑代码，保持不变 ---
-
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         float width = getWidth();
         cellWidth = width / gridSize;
 
-        // 画线
         paint.setColor(Color.BLACK);
         paint.setStyle(Paint.Style.STROKE);
         for (int i = 0; i < gridSize; i++) {
@@ -53,7 +50,6 @@ public class GobangView extends View {
             canvas.drawLine(pos, cellWidth / 2, pos, width - cellWidth / 2, paint);
         }
 
-        // 画棋子
         paint.setStyle(Paint.Style.FILL);
         for (int i = 0; i < gridSize; i++) {
             for (int j = 0; j < gridSize; j++) {
@@ -79,7 +75,7 @@ public class GobangView extends View {
                 board[x][y] = isBlack ? 1 : 2;
                 if (checkWin(x, y)) {
                     isGameOver = true;
-                    String winner = isBlack ? "江靖浩获胜！" : "江靖浩大获全胜！";
+                    String winner = isBlack ? (blackName + " wins!") : (whiteName + " wins!");
                     Toast.makeText(getContext(), winner, Toast.LENGTH_LONG).show();
                 }
                 isBlack = !isBlack;
@@ -115,7 +111,6 @@ public class GobangView extends View {
         return x >= 0 && x < gridSize && y >= 0 && y < gridSize;
     }
 
-    // 重新开始游戏
     public void restartGame() {
         for (int i = 0; i < gridSize; i++) {
             for (int j = 0; j < gridSize; j++) {
@@ -125,6 +120,17 @@ public class GobangView extends View {
         isBlack = true;
         isGameOver = false;
         invalidate();
-        Toast.makeText(getContext(), "游戏已重置", Toast.LENGTH_SHORT).show();
+        Toast.makeText(getContext(), "Game reset.", Toast.LENGTH_SHORT).show();
+    }
+
+    public void setPlayerNames(String black, String white) {
+        blackName = sanitizeName(black, "Black");
+        whiteName = sanitizeName(white, "White");
+    }
+
+    private String sanitizeName(String name, String fallback) {
+        if (name == null) return fallback;
+        String trimmed = name.trim();
+        return trimmed.isEmpty() ? fallback : trimmed;
     }
 }
