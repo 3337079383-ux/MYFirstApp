@@ -1,0 +1,31 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(gradlew assembleDebug)",
+      "Bash(.gradlew assembleDebug)",
+      "Bash(dir)",
+      "Bash(./gradlew assembleDebug)",
+      "Bash(ls gradle:)",
+      "Bash(gradle --version)",
+      "Bash(dir gradle)",
+      "Bash(dir gradlewrapper)",
+      "Bash(gradle assembleDebug)",
+      "Bash(javac -cp \"../../../../../..\" -Xlint GobangView.java)",
+      "Bash(gradle build)",
+      "Bash(javac -cp \"app/src/main/java\" -d \"build/classes\" \"app/src/main/java/com/example/myfirstapp/GobangView.java\")",
+      "Bash(cmd.exe /c test_compile.bat)",
+      "Bash(javac -version)",
+      "Bash(find app/src/main/java -name \"*.java\" -exec echo \"Checking {}\" ;)",
+      "Bash(javac -cp \"app/src/main/java\" -d \"build/classes\" \"app/src/main/java/com/example/myfirstapp/ai/*.java\")",
+      "Bash(javac -cp \"app/src/main/java\" -d \"build/classes\" app/src/main/java/com/example/myfirstapp/ai/*.java)",
+      "Bash(cmd /c test_compile.bat)",
+      "Bash(cat test_compile.bat)",
+      "Bash(javac -cp \"app/src/main/java\" -d \"build/classes\" \"app/src/main/java/com/example/myfirstapp/ai/GomokuExpertTest.java\")",
+      "Bash(test_compile.bat)",
+      "Bash(dir appsrcmainjavacomexamplemyfirstappai)",
+      "Bash(xargs cat)",
+      "Bash(find app/src/main/java/com/example/myfirstapp/ai/ -name \"*.java\" -exec echo \"=== {} ===\" ; -exec head -5 {} ;)",
+      "Bash(javac -cp \"app/src/main/java\" \"app/src/main/java/com/example/myfirstapp/ai/SimpleCompileTest.java\")"
+    ]
+  }
+}

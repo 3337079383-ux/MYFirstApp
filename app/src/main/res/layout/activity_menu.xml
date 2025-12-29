@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:gravity="center_horizontal"
+              android:background="#F5F5F5"
+              android:padding="30dp">
+
+    <!-- App Logo -->
+    <ImageView
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="30dp" />
+
+    <!-- App Title -->
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="五子棋"
+            android:textSize="32sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="60dp" />
+
+    <!-- Main Menu Buttons Container -->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal">
+
+        <!-- Player vs Player Button -->
+        <Button
+                android:id="@+id/btn_pvp"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:text="双人对战"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_style"
+                android:textColor="#FFFFFF" />
+
+        <!-- Player vs AI Button -->
+        <Button
+                android:id="@+id/btn_ai"
+                android:layout_width="200dp"
+                android:layout_height="60dp"
+                android:text="人机对战"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/button_style"
+                android:textColor="#FFFFFF" />
+
+    </LinearLayout>
+
+    <!-- Records Button -->
+    <Button
+            android:id="@+id/btn_records"
+            android:layout_width="150dp"
+            android:layout_height="45dp"
+            android:text="比赛记录"
+            android:textSize="16sp"
+            android:textColor="#666666"
+            android:layout_marginTop="30dp"
+            android:background="@drawable/button_secondary_style" />
+
+</LinearLayout>

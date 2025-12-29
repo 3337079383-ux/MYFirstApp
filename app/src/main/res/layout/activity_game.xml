@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:gravity="center_horizontal"
+              android:background="#F5F5F5"
+              android:padding="16dp">
+
+    <!-- Current Mode Display with Settings -->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="8dp">
+
+        <TextView
+                android:id="@+id/tv_current_mode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="当前模式: 双人对战"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#2196F3" />
+
+        <ImageButton
+                android:id="@+id/btn_settings"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:background="?android:attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_menu_preferences"
+                android:contentDescription="设置"
+                android:tint="#666666" />
+
+    </LinearLayout>
+
+    <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/ic_launcher"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+    <!-- Player Name Inputs (For PvP mode) -->
+    <LinearLayout
+            android:id="@+id/ll_player_names"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="8dp">
+
+        <EditText
+                android:id="@+id/et_black_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Black player name"
+                android:textColorHint="#888888"
+                android:textColor="#333333"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:layout_marginBottom="6dp"
+                android:padding="8dp"
+                android:textSize="14sp" />
+
+        <EditText
+                android:id="@+id/et_white_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="White player name"
+                android:textColorHint="#888888"
+                android:textColor="#333333"
+                android:inputType="textPersonName"
+                android:maxLines="1"
+                android:layout_marginBottom="8dp"
+                android:padding="8dp"
+                android:textSize="14sp" />
+
+    </LinearLayout>
+
+    <TextView
+            android:id="@+id/tv_game_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="当前状态: 请点击开始"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#D32F2F"
+            android:layout_marginBottom="8dp"/>
+
+    <!-- Game Board with proper sizing -->
+    <com.example.myfirstapp.GobangView
+            android:id="@+id/my_gobang_view"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:layout_margin="6dp"
+            android:elevation="4dp"
+            android:background="@drawable/board_background" />
+
+    <!-- Action Buttons -->
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="12dp">
+
+        <Button
+                android:id="@+id/btn_back_menu"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="返回菜单"
+                android:textSize="16sp"
+                android:textColor="#666666"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/button_secondary_style" />
+
+        <Button
+                android:id="@+id/btn_restart"
+                android:layout_width="0dp"
+                android:layout_height="50dp"
+                android:layout_weight="1"
+                android:text="开始"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/button_style" />
+
+    </LinearLayout>
+
+</LinearLayout>
